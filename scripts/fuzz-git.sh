@@ -14,7 +14,7 @@ docker build \
 -f docker/fuzzer-git/Dockerfile \
 -t gfuzzgit:latest .
 
-container_id=$(docker run --rm -d \
+container_id=$(docker run -d \
 -v $(pwd)/tmp/pkgmod:/go/pkg/mod \
 -v $OUTPUT_DIR:/fuzz/output \
 gfuzzgit:latest /fuzz/output $@)
